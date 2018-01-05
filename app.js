@@ -20,7 +20,21 @@ var apos = require('apostrophe')({
     // If a template is not found somewhere else, serve it from the top-level
     // `views/` folder of the project
 
-    'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') }
+    'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') },
+
+    // This configures our default page template
+    'apostrophe-pages': {
+      types: [
+        {
+          name: 'default',
+          label: 'Default'
+        },
+        {
+          name: 'home',
+          label: 'Home'
+        },
+      ]
+    }
 
   }
 });

@@ -8,31 +8,52 @@
 {% block title %}Home{% endblock %}
 {% block main %}
   <div class="main-content">
-    <h3>Hello world!
-      {% if not data.user %}
-        <a class="login-link" href="/login">Login</a>
-      {% endif %}
-    </h3>
-    <p>This is a very bare bones Apostrophe project. Now, get to work and make a real website!</p>
+    {{
+      apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
+        toolbar: [ 'Bold', 'Italic' ]
+      })
+    }}
 
-    {{ apos.area(data.page, 'body', {
-      widgets: {
-        'apostrophe-images': {
-          size: 'full'
-        },
-        'apostrophe-rich-text': {
-          toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
-          styles: [
-            { name: 'Heading', element: 'h3' },
-            { name: 'Subheading', element: 'h4' },
-            { name: 'Paragraph', element: 'p' }
-          ]
+    <hr>
+    <h1>`Sup</h1>
+    <hr>
+    {{
+      apos.area(data.page, 'body', {
+        widgets: {
+          'apostrophe-rich-text': {
+            toolbar: [ 'Styles', 'Bold', 'Italic', 'Split' ],
+            styles: [
+              { name: 'Title', element: 'h3' },
+              { name: 'Meta', element: 'h5' }
+            ]
+          },
+          'apostrophe-images': {
+            size: 'full'
+          }
         }
-      }
-    }) }}
-    
+      })
+    }}
+    <hr>
+    <h1>`Sup2</h1>
+    <hr>
+    {{
+      apos.singleton(data.page, 'heroPic', 'apostrophe-images', {
+        minSize: [ 192, 108 ],
+        aspectRatio: [ 16, 9 ],
+        limit: 1,
+        size: 'full'
+      })
+    }}
+    <hr>
+    <h1>`Sup3</h1>
+    <hr>
+    {{
+      apos.singleton(data.page, 'resume', 'apostrophe-files', {
+        limit: 1
+      })
+    }}
+  
   </div>
-
 
 
 {% endblock %}

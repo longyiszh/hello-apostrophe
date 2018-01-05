@@ -1,7 +1,7 @@
 {
   "name": "hello-apostrophe",
-  "version": "2.0.0",
-  "description": "Minimal Apostrophe Boilerplate",
+  "version": "1.0.0",
+  "description": "I am meeting Apostrophe",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": ""
   },
-  "author": "P'unk Avenue",
+  "author": "longyiszh",
   "license": "MIT",
   "dependencies": {
     "apostrophe": "^2.0.0"
