@@ -2,22 +2,38 @@
   <div class="block hero">
     <div class="inner">
       <div class="hero-text">
-        <h4>Welcome to my first Apostrophe site!</h4>
+        <h4>Welcome to my first Apostrophe site - default!</h4>
       </div>
     </div>
   </div>
+  <ul class="tabs">
+    {% for tab in data.home._children %}
+    <li class="
+      {% if data.page and
+        (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id)
+      %}
+        current
+      {% endif %}
+    ">
+      <a href="{{ tab._url }}">{{ tab.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <div>
+    {% if not data.user %}
+    <a class="login-link" href="/login">Login</a>
+    {% endif %}
+  </div>
+
 {% endblock %}
 
 
 
 {% block main %}
   <div class="main-content">
-    <h3>Hello world!
-      {% if not data.user %}
-        <a class="login-link" href="/login">Login</a>
-      {% endif %}
-    </h3>
+    <h3>Hello world!</h3>
     <p>This is a very bare bones Apostrophe project. Now, get to work and make a real website!</p>
+    <h2><a href="{{ data.home._url }}">{{ data.home.title }}</a></h2>
 
     {{
 

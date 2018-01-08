@@ -5,6 +5,35 @@
 
 {% extends "layout.html" %}
 
+{% block beforeMain %}
+  <div class="block hero">
+    <div class="inner">
+      <div class="hero-text">
+        <h4>Welcome to my first Apostrophe site - home!</h4>
+      </div>
+    </div>
+  </div>
+  <ul class="tabs">
+    {% for tab in data.home._children %}
+      <li><a href="{{ tab._url }}">{{ tab.title }}</a>
+        {% if tab._children.length %}
+          <ul>
+            {% for child in tab._children %}
+              <li><a href="{{ child._url }}">{{ child.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <div>
+    {% if not data.user %}
+    <a class="login-link" href="/login">Login</a>
+    {% endif %}
+  </div>
+
+{% endblock %}
+
 {% block title %}Home{% endblock %}
 {% block main %}
   <div class="main-content">
@@ -50,6 +79,12 @@
     {{
       apos.singleton(data.page, 'resume', 'apostrophe-files', {
         limit: 1
+      })
+    }}
+
+    {{
+      apos.singleton(data.global, 'footer', 'apostrophe-rich-text', {
+        toolbar: [ 'Bold', 'Italic', 'Styles', 'Link', 'Unlink' ]
       })
     }}
   
