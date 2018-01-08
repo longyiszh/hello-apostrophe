@@ -34,7 +34,11 @@ var apos = require('apostrophe')({
           label: 'Home'
         },
       ]
-    }
+    },
+
+    'link-widgets': {},
+    'page-link-widgets': {},
+    'drawer-widgets': {}
 
   }
 });

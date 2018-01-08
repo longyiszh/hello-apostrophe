@@ -36,6 +36,17 @@
 
 {% block title %}Home{% endblock %}
 {% block main %}
+  <div>
+    <h2>Featured page</h2>
+    {{
+      apos.area(data.page, 'navigation', {
+        widgets: {
+          link: {},
+          'page-link': {}
+        }
+      })
+    }}
+  </div>
   <div class="main-content">
     {{
       apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
