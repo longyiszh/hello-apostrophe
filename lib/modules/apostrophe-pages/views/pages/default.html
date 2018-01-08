@@ -59,11 +59,16 @@
 
     <h2>Drawers</h2>
     {{
-      apos.area(data.page, 'drawers', {
+      apos.area(data.page, 'drawer', {
         widgets: {
           drawer: {}
         }
       })
+    }}
+
+    <h2>TCW</h2>
+    {{
+      apos.singleton(data.page, 'tcw','two-column', {})
     }}
 
   </div>
