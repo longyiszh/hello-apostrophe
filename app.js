@@ -23,23 +23,19 @@ var apos = require('apostrophe')({
     'apostrophe-templates': { viewsFolderFallback: path.join(__dirname, 'views') },
 
     // This configures our default page template
-    'apostrophe-pages': {
-      types: [
-        {
-          name: 'default',
-          label: 'Default'
-        },
-        {
-          name: 'home',
-          label: 'Home'
-        },
-      ]
-    },
+    'apostrophe-pages': {},
 
     'link-widgets': {},
     'page-link-widgets': {},
     'drawer-widgets': {},
-    'two-column-widgets': {}
+    'two-column-widgets': {},
+    'people': {},
+    'people-widgets': {
+      extend: 'apostrophe-pieces-widgets'
+    },
+    'people-pages': {
+      extend: 'apostrophe-pieces-pages'
+    }
 
   }
 });
